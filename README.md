@@ -1,206 +1,125 @@
-1. Business Requirement Document (BRD)
+# FinPay Dashboard
 
-Purpose
+A modern, secure credit card management dashboard that brings fintech capabilities to the web. This project demonstrates production-ready full-stack development with React, .NET Core, and Azure cloud services.
 
-Create a web-based credit card management dashboard that mirrors and extends the features of the existing OneCard mobile app. The objective is to demonstrate full-stack skills (React + .NET + Azure), build a fintech-grade portfolio project, and showcase ability to design scalable, secure systems.
+## 🚀 Overview
 
-Goals
+FinPay Dashboard is a comprehensive web application that mirrors and extends the features of modern credit card mobile apps. Built with enterprise-grade architecture patterns, it showcases secure financial data management, real-time insights, and intuitive user experiences.
 
-Provide a responsive web application for managing credit card accounts.
+### Key Features
 
-Implement a secure backend API using C# + ASP.NET Core, deployed on Azure.
+- **Smart Dashboard**: Real-time balance tracking, spending insights, and bill management
+- **Transaction Management**: Advanced filtering, categorization, and export capabilities
+- **Rewards System**: Track and redeem rewards with gamification elements
+- **AI-Powered Insights**: Intelligent spending analysis and predictive alerts
+- **Secure Authentication**: Multi-factor authentication with Azure AD B2C
+- **Responsive Design**: Mobile-first approach with modern UI components
 
-Integrate realistic financial features:
+## 🛠️ Technology Stack
 
-Card management
+### Frontend
+- **React 18** with **Next.js 14** (TypeScript)
+- **Tailwind CSS** + **Shadcn UI** for modern styling
+- **Redux Toolkit** for state management
+- **React Query** for efficient API data fetching
+- **Recharts** for interactive data visualization
 
-Transaction history
+### Backend
+- **ASP.NET Core Web API** (C#)
+- **Entity Framework Core** with **Azure SQL Database**
+- **Azure AD B2C** for secure authentication
+- **Azure Key Vault** for secrets management
 
-Spending insights
+### Cloud & DevOps
+- **Azure App Service** for hosting
+- **Azure Application Insights** for monitoring
+- **Docker** containerization
+- **GitHub Actions** for CI/CD
 
-Reward tracking
+## 📋 Prerequisites
 
-Deliver a production-ready architecture (CI/CD, monitoring, secure secrets).
+- [Node.js 18+](https://nodejs.org/)
+- [.NET 8 SDK](https://dotnet.microsoft.com/download)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) (optional, for deployment)
 
-Out of Scope
+## 🚀 Quick Start
 
-Real banking integrations (mock data will be used).
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/FinPay-Dashboard.git
+cd FinPay-Dashboard
+```
 
-PCI-DSS compliance (not required for demo).
+### 2. Setup Instructions
+For detailed setup and development instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Payment processing with real networks.
+## 🏗️ Project Status
 
-2. What Are We Developing
+This project is currently in the planning and initial development phase. See our [roadmap](#roadmap) below for planned features and timeline.
 
-Web App Name: FinPay Dashboard (placeholder – rename later).
+## 🗺️ Roadmap
 
-Core Features:
+### Phase 1: Foundation (Weeks 1-2)
+- [x] Project setup and repository structure
+- [ ] Frontend scaffolding (Next.js + TypeScript)
+- [ ] Backend API setup (ASP.NET Core)
+- [ ] Database design and initial migrations
+- [ ] Authentication implementation
 
-Authentication
+### Phase 2: Core Features (Weeks 3-4)
+- [ ] Dashboard with spending insights
+- [ ] Transaction management system
+- [ ] Data visualization components
+- [ ] API integration and testing
 
-Login/Signup (OAuth2, Azure AD B2C, or IdentityServer).
+### Phase 3: Advanced Features (Weeks 5-6)
+- [ ] Rewards tracking system
+- [ ] User profile management
+- [ ] Advanced filtering and search
+- [ ] Export functionality
 
-Multi-factor mock (OTP/email for demo).
+### Phase 4: Intelligence Layer (Week 7)
+- [ ] AI-powered spending categorization
+- [ ] Predictive analytics
+- [ ] Smart notifications and alerts
 
-Dashboard
+### Phase 5: Production (Week 8)
+- [ ] CI/CD pipeline setup
+- [ ] Azure deployment configuration
+- [ ] Performance optimization
+- [ ] Security hardening
 
-Current balance
+## 🤝 Contributing
 
-Available limit
+We welcome contributions from developers of all experience levels! Please read our [Contributing Guide](CONTRIBUTING.md) for detailed information on:
 
-Upcoming bill due date
+- Development setup
+- Coding standards
+- Pull request process
+- Project architecture
 
-Monthly spend summary (charts)
+## 📄 License
 
-Transactions
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Transaction list with filters (date, category, merchant)
+## 🔒 Security Notice
 
-Transaction details view
+This is a demonstration project designed for portfolio and learning purposes. While it implements security best practices, it should not be used with real financial data or in production environments without proper security audits and compliance measures.
 
-Export as CSV
+## 📞 Support
 
-Rewards
+- 🐛 **Issues**: [GitHub Issues](https://github.com/your-username/FinPay-Dashboard/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/your-username/FinPay-Dashboard/discussions)
+- 📧 **Contact**: Open an issue for questions or support
 
-Track earned rewards
+## 🙏 Acknowledgments
 
-Redeem mock rewards
+- Inspired by modern fintech applications like OneCard
+- Built with open-source technologies and Azure cloud services
+- Special thanks to all contributors and the open-source community
 
-Gamification elements (badges, milestones)
+---
 
-Profile & Settings
-
-User profile management
-
-Notifications settings
-
-Linked bank accounts (mock)
-
-AI Insights (Bonus)
-
-Categorize spending (food, travel, shopping, etc.)
-
-Predict overspending trends
-
-Recommend saving opportunities
-
-3. Tech Stack
-Frontend
-
-React + Next.js (TypeScript)
-
-Styling: Tailwind CSS + Shadcn UI
-
-State Management: Redux Toolkit (for global state) + React Query (for API data)
-
-Charts: Recharts / Chart.js
-
-Auth: OAuth2/OpenID Connect (via Azure AD B2C)
-
-Backend
-
-C# + ASP.NET Core Web API
-
-Database: Azure SQL Database
-
-ORM: Entity Framework Core
-
-Auth: Azure AD B2C / IdentityServer
-
-Deployment: Azure App Service
-
-Monitoring: Azure Application Insights
-
-Secrets: Azure Key Vault
-
-DevOps
-
-Docker (containerize frontend + backend)
-
-CI/CD → GitHub Actions → Azure deployment
-
-Branching strategy → main (production), dev (staging)
-
-4. System Architecture
-
-[Frontend: React/Next.js] <---> [Backend API: ASP.NET Core] <---> [Azure SQL DB]
-        |                               |                          |
-   Hosted on Vercel/Azure Static   Hosted on Azure App Service   Managed on Azure
-        |
-   Auth handled via Azure AD B2C
-
-5. Project Roadmap
-Phase 1 – Week 1–2: Setup & Core
-
-Setup GitHub repo (monorepo or separate repos for FE/BE).
-
-Scaffold Next.js frontend + ASP.NET Core backend.
-
-Setup Azure SQL DB & ORM.
-
-Implement auth flow (login/signup with JWT from IdentityServer/Azure AD B2C).
-
-Basic UI: landing + login.
-
-Phase 2 – Week 3–4: Dashboard & Transactions
-
-Build Dashboard page with dummy data.
-
-Implement Transactions API (GET, filter).
-
-Frontend → Transaction list with search/filter.
-
-Add charts for monthly spend.
-
-Phase 3 – Week 5–6: Rewards & Profile
-
-Backend: Rewards API (mock).
-
-Frontend: Rewards UI + redemption flow.
-
-Profile & Settings page.
-
-Phase 4 – Week 7: AI Insights (Optional but cool)
-
-Build simple categorization logic (merchant name → category).
-
-Add predictive overspending alert (rule-based).
-
-Display insights on dashboard.
-
-Phase 5 – Week 8: Production Hardening
-
-Add CI/CD pipeline → GitHub Actions → Azure.
-
-Add Application Insights logging.
-
-Deploy demo version online.
-
-Write README + Developer Docs.
-
-6. Deliverables
-
-Web app deployed on Azure/Vercel.
-
-Source code repo with clear commits & branches.
-
-Documentation:
-
-README (how to run locally, APIs, deployment).
-
-API docs (Swagger for backend).
-
-User guide (screenshots + features).
-
-Demo video (walkthrough for portfolio).
-
-7. Future Enhancements (If you want to stretch)
-
-PWA (so the web app can act like a mobile app too).
-
-Notifications (Azure Notification Hub).
-
-Real-time updates (SignalR/WebSockets).
-
-Bank API integration (via sandbox, like RazorpayX or Plaid equivalent in India).
+⭐ **Star this repository if you find it helpful!**
 
