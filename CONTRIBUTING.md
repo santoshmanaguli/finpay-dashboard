@@ -108,11 +108,18 @@ dotnet ef database update
 dotnet run --seed-data
 ```
 
-#### Option B: Using Azure SQL Database
+#### Option B: Using Azure SQL Database (Free Tier)
 
-1. Create an Azure SQL Database
+1. Create an Azure SQL Database using the **free tier**:
+   - Up to 10 General Purpose databases per subscription
+   - 100,000 vCore seconds of compute per database/month
+   - 32 GB of data storage per database
+   - 32 GB of backup storage per database
+   - Free for the lifetime of your subscription
 2. Update the connection string in user secrets
 3. Run migrations: `dotnet ef database update`
+
+**Note**: Monitor your usage in Azure portal to stay within free limits. Database can auto-pause when limits are reached.
 
 ### 5. Start the Backend
 
@@ -504,8 +511,9 @@ Add screenshots to help explain your changes.
          │                       │                       │
          ▼                       ▼                       ▼
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Azure Static  │    │  Azure App      │    │   Azure Key     │
-│   Web Apps      │    │   Service       │    │    Vault        │
+│   (Vercel)      │    │  Azure Container│    │   Azure Key     │
+│                 │    │      Apps       │    │    Vault        │
+│   (Free Tier)   │    │   (Free Tier)   │    │   (Free Tier)   │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
@@ -606,6 +614,35 @@ Response:
 ```
 
 For complete API documentation, run the backend and visit `/swagger`.
+
+## 🌐 Free Tier Deployment Options
+
+### Frontend Deployment - Vercel (Free)
+- **Free features**: Unlimited public repositories, 1 custom domain, 100 GB bandwidth/month
+- **Automatic deployments** from GitHub/Azure DevOps
+- **Global CDN** for fast content delivery
+- **Free SSL certificates** with auto-renewal
+- **Serverless Functions** integration for API calls
+
+### Backend Deployment - Azure Container Apps (Free)
+- **Free monthly allowance**: 180,000 vCPU-seconds and 360,000 GiB-seconds
+- **Scale-to-zero**: Pay only when your app is active
+- **Supports Docker containers** for ASP.NET Core apps
+- **Integrated with Azure services** (SQL Database, Key Vault)
+- **HTTPS endpoints** with automatic certificate management
+
+### Database - Azure SQL Database Free Tier
+- **Monthly limits**: 100,000 vCore-seconds compute, 32GB storage
+- **10 databases per subscription** maximum
+- **Auto-pause option** when limits are reached
+- **Point-in-time restore** (7 days retention)
+- **Monitor usage** in Azure portal to track consumption
+
+### Free Tier Limitations to Consider
+- **Static Web Apps**: Advanced features require Standard plan
+- **Container Apps**: Additional usage charged at standard rates
+- **SQL Database**: Backup limited to local redundant storage
+- **Key Vault**: 10,000 secret operations/month in free tier
 
 ## 🐛 Troubleshooting
 

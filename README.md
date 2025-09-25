@@ -15,6 +15,24 @@ FinPay Dashboard is a comprehensive web application that mirrors and extends the
 - **Secure Authentication**: Multi-factor authentication with Azure AD B2C
 - **Responsive Design**: Mobile-first approach with modern UI components
 
+## 💰 Cost-Effective Development with Azure Free Tier
+
+This project is designed to run entirely on **Azure's free tier**, making it accessible for learning, development, and small-scale production use:
+
+### 🆓 What's Free
+- **Frontend Hosting**: Vercel
+- **Backend Hosting**: Azure Container Apps (180,000 vCPU-seconds/month)
+- **Database**: Azure SQL Database (100,000 vCore-seconds + 32GB storage/month)
+- **Authentication**: Azure AD B2C (50,000 monthly active users)
+- **Secrets Management**: Azure Key Vault (10,000 operations/month)
+- **Monitoring**: Basic Application Insights
+
+### 💡 Perfect for
+- **Learning and development** - Build real-world fintech skills
+- **Portfolio projects** - Showcase full-stack capabilities
+- **Prototyping** - Test ideas before scaling
+- **Small user base** - Support hundreds of users within free limits
+
 ## 🛠️ Technology Stack
 
 ### Frontend
@@ -30,8 +48,10 @@ FinPay Dashboard is a comprehensive web application that mirrors and extends the
 - **Azure AD B2C** for secure authentication
 - **Azure Key Vault** for secrets management
 
-### Cloud & DevOps
-- **Azure App Service** for hosting
+### Cloud & DevOps (Free Tier)
+- **Vercel** (Free tier for frontend hosting)
+- **Azure Container Apps** (Free tier: 180,000 vCPU-seconds/month)
+- **Azure SQL Database** (Free tier: 100,000 vCore-seconds + 32GB storage/month)
 - **Azure Application Insights** for monitoring
 - **Docker** containerization
 - **GitHub Actions** for CI/CD
@@ -86,7 +106,10 @@ This project is currently in the planning and initial development phase. See our
 
 ### Phase 5: Production (Week 8)
 - [ ] CI/CD pipeline setup
-- [ ] Azure deployment configuration
+- [ ] Azure free tier deployment configuration
+  - [ ] Frontend: Vercel
+  - [ ] Backend: Azure Container Apps (Free)
+  - [ ] Database: Azure SQL Database (Free tier)
 - [ ] Performance optimization
 - [ ] Security hardening
 
