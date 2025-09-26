@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "FCthMcZP9len52BCrqk8/duJBuxQN8D+/54Qw9Od56g=",
+  "Source": "FinPayDashboard.Api",
+  "BasePath": "_content/FinPayDashboard.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
