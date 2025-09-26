@@ -1,41 +1,42 @@
-var builder = WebApplication.CreateBuilder(args);
+  using Microsoft.EntityFrameworkCore;
+  using FinPayDashboard.Api.Data;
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+  var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+  // Add services to the container.
+  builder.Services.AddControllers();
+  builder.Services.AddEndpointsApiExplorer();
+  builder.Services.AddSwaggerGen();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+  // Add Entity Framework
+  builder.Services.AddDbContext<FinPayDbContext>(options =>
+      options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-app.UseHttpsRedirection();
+  // Add CORS
+  builder.Services.AddCors(options =>
+  {
+      options.AddPolicy("AllowFrontend",
+          policy =>
+          {
+              policy.WithOrigins("http://localhost:3000", "https://localhost:3000")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials();
+          });
+  });
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+  var app = builder.Build();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+  // Configure the HTTP request pipeline.
+  if (app.Environment.IsDevelopment())
+  {
+      app.UseSwagger();
+      app.UseSwaggerUI();
+  }
 
-app.Run();
+  app.UseHttpsRedirection();
+  app.UseCors("AllowFrontend");
+  app.UseAuthorization();
+  app.MapControllers();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+  app.Run();
