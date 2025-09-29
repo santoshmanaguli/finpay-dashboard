@@ -1,0 +1,26 @@
+# Environment variables
+.env
+*.env
+
+# Dependencies
+node_modules/
+/backend/**/bin/
+/backend/**/obj/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
